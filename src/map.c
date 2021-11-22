@@ -6,7 +6,7 @@
 /*   By: oronda <oronda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 16:38:54 by oronda            #+#    #+#             */
-/*   Updated: 2021/11/18 15:51:44 by oronda           ###   ########.fr       */
+/*   Updated: 2021/11/22 11:10:23 by oronda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	get_width_and_height(int fd, t_game *data)
 	height = 0;
 	temp_width = 0;
 	if (!calculate(&height, &temp_width, &width, fd))
-		return (print_error("map not rectangular"));
+		return (print_error("map error"));
 	data->map_size.x = temp_width;
-	data->map_size.y = height + 1;
+	data->map_size.y = height;
 	close(fd);
 	return (1);
 }
@@ -53,5 +53,7 @@ int	calculate(int *height, int *temp_width, int *width, int fd)
 				(*width)++;
 		}
 	}
+	if (*buffer != '\n')
+		*height += 1;
 	return (1);
 }
