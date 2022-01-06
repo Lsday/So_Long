@@ -6,7 +6,7 @@
 /*   By: oronda <oronda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 16:39:39 by oronda            #+#    #+#             */
-/*   Updated: 2021/11/18 15:56:11 by oronda           ###   ########.fr       */
+/*   Updated: 2021/11/22 13:55:48 by oronda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	check_exit_nb(t_game *data)
 		}
 		y++;
 	}
-	if (exitnb == 1)
+	if (exitnb >= 1)
 		return (1);
 	else
 		return (0);
